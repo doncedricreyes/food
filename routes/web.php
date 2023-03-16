@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MyKitchenController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+Route::get('/register',[UserController::class,'register_index']);
+Route::post('/register',[UserController::class,'register']);
+Route::get('/login',[UserController::class,'login_index'])->name('login');
+Route::post('/login',[UserController::class,'login']);
+Route::get('/logout',[UserController::class,'logout']);
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
 
 Route::get('/mykitchen',[MyKitchenController::class,'index']);
 Route::get('/mykitchen/create',[MyKitchenController::class,'create']);

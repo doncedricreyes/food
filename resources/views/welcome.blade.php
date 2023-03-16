@@ -12,6 +12,11 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
 </head>
 <body>
+@if(auth()->check())
+    {{auth()->user()->name}}
+@endif
+
+
 	<div class="sidebar">
 		<ul class="sidebar__menu">
 			<i class="fa fa-times sidebar__close" aria-hidden="true"></i>
@@ -497,7 +502,7 @@
 					Download our app and join the contest
 				</div>
 				<div class="download__sub">
-					In order to improve our cooking skills, <br>we do need a food photography 
+					In order to improve our cooking skills, <br>we do need a food photography
 				</div>
 				<div class="download__button-img">
 					<img src="./img/appstore.png" alt="">
