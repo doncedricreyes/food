@@ -31,7 +31,12 @@ Route::get('/', function () {
 
 
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/mykitchen',[MyKitchenController::class,'index']);
+    Route::get('/mykitchen/create',[MyKitchenController::class,'create']);
+    Route::post('/mykitchen/create',[MyKitchenController::class,'store']);
+    Route::get('/mykitchen/recipe/{id}',[MyKitchenController::class,'edit']);
+    Route::put('/mykitchen/recipe/{id}',[MyKitchenController::class,'update']);
+    Route::delete('/mykitchen/recipe/delete/{id}',[MyKitchenController::class,'delete']);
+});
 
-Route::get('/mykitchen',[MyKitchenController::class,'index']);
-Route::get('/mykitchen/create',[MyKitchenController::class,'create']);
-Route::post('/mykitchen/create',[MyKitchenController::class,'store']);
