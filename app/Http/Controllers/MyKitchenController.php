@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Recipe;
+use App\Models\Category;
+
 class MyKitchenController extends Controller
 {
     public function index()
@@ -15,7 +17,8 @@ class MyKitchenController extends Controller
 
     public function create()
     {
-        return view('mykitchen.create');
+        $category = Category::all();
+        return view('mykitchen.create',['category'=>$category]);
     }
 
     public function store(Request $request)
@@ -24,6 +27,7 @@ class MyKitchenController extends Controller
             'name' => 'required',
             'description' => 'required',
             'recipe' => 'required',
+            'category_id' => 'required',
 
         ]);
         $data['user_id'] = auth()->user()->id;

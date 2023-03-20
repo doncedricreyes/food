@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MyKitchenController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -38,5 +39,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mykitchen/recipe/{id}',[MyKitchenController::class,'edit']);
     Route::put('/mykitchen/recipe/{id}',[MyKitchenController::class,'update']);
     Route::delete('/mykitchen/recipe/delete/{id}',[MyKitchenController::class,'delete']);
+
+    Route::get('/category/create',[CategoryController::class,'create']);
+    Route::post('/category/create',[CategoryController::class,'store']);
 });
 
