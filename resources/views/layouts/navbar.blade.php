@@ -19,7 +19,7 @@
 			</a>
 			<ul class="navbar__links">
 				<li class="active"><a href="/">Home</a></li>
-				<li><a href="">Beverages</a></li>
+				<li><a href="/recipes">Recipes</a></li>
 				<li><a href="">Chef</a></li>
 				<li><a href="">Ingredient</a></li>
 				<li><a href="">Stories</a></li>
