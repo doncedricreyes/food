@@ -9,7 +9,8 @@
     <title>Food Website Sample PSD to HTML</title>
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+
         @vite('resources/css/app.css');
         @livewireStyles
 </head>
@@ -43,11 +44,11 @@
                 <textarea id="recipe" name="recipe" rows="10" cols="50" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled>{{$i->recipe}}</textarea>
             </div>
 
-        @endforeach
+
 
         <span class="block mb-2 text-lg font-bold mt-20 ">Comments</span>
-        @livewire('comment')
-
+        <livewire:comments id="{{$i->id}}">
+            @endforeach
         </div>
 
 
