@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Comment;
+use App\Models\Like;
 
 class Comments extends Component
 {
@@ -38,18 +39,41 @@ class Comments extends Component
 
     public function render()
     {
-        $this->comments = Comment::where('recipe_id',$this->recipe_id)->get();
+        $this->comments = Comment::with('likes')->where('recipe_id',$this->recipe_id)->latest()->get();
+
+
         return view('livewire.comments');
     }
 
 
-    public function increment()
+    public function increment($id)
     {
-        $this->count++;
+
+        $user_id = auth()->user()->id;
+        $exists = Like::where('comment_id',$id)->where('user_id',$user_id)->exists();
+
+        if(!$exists){
+        $this->count = 1;
+
+
+        Like::create([
+            'user_id'=>$user_id,
+            'comment_id' => $id,
+            'status' => $this->count,
+            'recipe_id' => $this->recipe_id
+        ]);
+        }
     }
 
-    public function decrement()
+    public function decrement($id)
     {
-        $this->count--;
+        $user_id = auth()->user()->id;
+        $exists = Like::where('comment_id',$id)->where('user_id',$user_id)->exists();
+
+        if($exists){
+
+
+        Like::where('user_id',$user_id)->where('comment_id',$id)->delete();
+        }
     }
 }

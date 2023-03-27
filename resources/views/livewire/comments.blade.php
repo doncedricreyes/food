@@ -17,14 +17,15 @@
 
     @foreach($comments as $i)
     <div class="flex flex-row">
+
     <div class="flex flex-col align-center justify-center mr-5">
-        <div><a wire:click='increment' class="cursor-pointer"><i class="fa-solid fa-arrow-up"></i></a></div>
-        <span class="align-center justify-center text-lg">{{$count}}</span>
-        <div><a wire:click="decrement" class="cursor-pointer"><i class="fa-solid fa-arrow-down"></i></a></div>
+        <div><a wire:click='increment({{$i->id}})' class="cursor-pointer"><i class="fa-solid fa-arrow-up"></i></a></div>
+        <span class="align-center justify-center text-lg"> {{$i->likes->count()}}</span>
+        <div><a wire:click="decrement({{$i->id}})" class="cursor-pointer"><i class="fa-solid fa-arrow-down"></i></a></div>
     </div>
     <div class="flex flex-col bg-white shadow-lg  mb-2 w-full">
         <div class="flex flex-row">
-            <span class="m-5 font-bold text-lg w-1 leading-5">{{auth()->user()->name}}</span>
+            <span class="m-5 mr-0 font-bold text-md w-12 leading-5">{{auth()->user()->name}}</span>
             <span class="m-5 text-sm">{{$i->created_at->diffForHumans()}}</span>
         </div>
         <div>
