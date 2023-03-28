@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Comment;
 use App\Models\Like;
+use Livewire\WithPagination;
 
 class Comments extends Component
 {
+    use WithPagination;
+
     public $new_comments,$user_id,$recipe_id;
     public $comments;
     public $count = 0;
@@ -39,10 +42,10 @@ class Comments extends Component
 
     public function render()
     {
-        $this->comments = Comment::with('likes')->where('recipe_id',$this->recipe_id)->latest()->get();
+        $query = Comment::with('likes')->where('recipe_id',$this->recipe_id)->latest()->paginate(3);
 
 
-        return view('livewire.comments');
+        return view('livewire.comments',['query'=>$query]);
     }
 
 

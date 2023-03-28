@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MyKitchenController;
 use App\Http\Controllers\RecipeController;
@@ -46,5 +47,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/recipes',[RecipeController::class,'index']);
     Route::get('/recipes/{id}',[RecipeController::class,'view']);
+
+    Route::get('/stories/index',[BlogController::class,'index']);
+    Route::get('/stories/create',[BlogController::class,'create']);
+    Route::post('/stories/create',[BlogController::class,'store']);
 });
 

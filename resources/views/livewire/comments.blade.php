@@ -15,7 +15,7 @@
     </div>
 </form>
 
-    @foreach($comments as $i)
+    @foreach($query as $i)
     <div class="flex flex-row">
 
     <div class="flex flex-col align-center justify-center mr-5">
@@ -35,6 +35,7 @@
     </div>
     </div>
     @endforeach
+    {{$query->links()}}
 
 </div>
 
