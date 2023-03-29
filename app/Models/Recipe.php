@@ -10,4 +10,9 @@ class Recipe extends Model
     use HasFactory;
 
     protected $fillable = ['name','description','recipe','img','user_id','category_id'];
+
+    public function rating()
+    {
+        return $this->hasMany(Rating::class);
+    }
 }

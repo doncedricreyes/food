@@ -45,7 +45,7 @@
             </div>
 
 
-
+            <livewire:ratings id="{{$i->id}}">
         <span class="block mb-2 text-lg font-bold mt-20 ">Comments</span>
         <livewire:comments id="{{$i->id}}">
             @endforeach
