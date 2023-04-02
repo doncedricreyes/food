@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MyKitchenController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -48,8 +49,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/recipes',[RecipeController::class,'index']);
     Route::get('/recipes/{id}',[RecipeController::class,'view']);
 
-    Route::get('/stories/index',[BlogController::class,'index']);
+    Route::get('/stories',[BlogController::class,'index']);
     Route::get('/stories/create',[BlogController::class,'create']);
     Route::post('/stories/create',[BlogController::class,'store']);
+
+    Route::get('/profile',[ProfileController::class,'index']);
+    Route::put('/profile/update/{id}',[ProfileController::class,'update']);
+    Route::get('/profile/create',[ProfileController::class,'create']);
+    Route::post('/profile/create',[ProfileController::class,'store']);
 });
 

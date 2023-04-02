@@ -10,7 +10,8 @@ class BlogController extends Controller
 
     public function index()
     {
-        return view('blog.index');
+        $data = Blog::with('users')->get();
+        return view('blog.index',['blog'=>$data]);
     }
 
     public function create()

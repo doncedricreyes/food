@@ -26,7 +26,7 @@ class UserController extends Controller
         $query = User::create($data);
         auth()->login($query);
 
-        return redirect('/');
+        return redirect('/profile/create');
     }
 
     public function login_index()

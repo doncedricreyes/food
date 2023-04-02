@@ -30,7 +30,12 @@ class MyKitchenController extends Controller
             'category_id' => 'required',
 
         ]);
+        $image = $request->file('img');
+        $filename = time() .'.'. $image->getClientOriginalExtension();
+        $image->move(public_path('images'),$filename);
+
         $data['user_id'] = auth()->user()->id;
+        $data['img'] = $filename;
         Recipe::create($data);
         return redirect('mykitchen/create');
     }

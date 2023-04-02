@@ -22,11 +22,36 @@
 				<li><a href="/recipes">Recipes</a></li>
 				<li><a href="">Chef</a></li>
 				<li><a href="">Ingredient</a></li>
-				<li><a href="">Stories</a></li>
+				<li><a href="/stories">Stories</a></li>
+                @if(auth()->check())
+                <li><a href="/logout">Logout</a></li>
+                @else
+                <li><a href="/login">Login</a></li>
+                @endif
 				<li class="navbar__main-link"><a href="/mykitchen">My Kitchen</a></li>
 			</ul>
 			<i class="fa fa-bars navbar__hamburger" aria-hidden="true"></i>
 		</nav>
+
+	<div class="sidebar">
+		<ul class="sidebar__menu">
+			<i class="fa fa-times sidebar__close" aria-hidden="true"></i>
+
+			<li><a>Home</a></li>
+			<li><a>Beverages</a></li>
+			<li><a>Chef</a></li>
+			<li><a>Ingredient</a></li>
+			<li><a>Stories</a></li>
+            @if(auth()->check())
+            <li><a href="/logout">Logout</a></li>
+            @else
+            <li><a href="/login">Login</a></li>
+            @endif
+			<li><a>My Kitchen</a></li>
+		</ul>
+	</div>
+	<div class="sidebar-overlay">
+	</div>
         @yield('content')
 </body>
 </html>

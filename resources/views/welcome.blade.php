@@ -11,31 +11,13 @@
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
 
-        @livewireStyles
+
 </head>
 <body>
-    @livewire('counter')
-        @livewireScripts
-
-@if(auth()->check())
-    {{auth()->user()->name}}
-@endif
 
 
-	<div class="sidebar">
-		<ul class="sidebar__menu">
-			<i class="fa fa-times sidebar__close" aria-hidden="true"></i>
 
-			<li><a>Home</a></li>
-			<li><a>Beverages</a></li>
-			<li><a>Chef</a></li>
-			<li><a>Ingredient</a></li>
-			<li><a>Stories</a></li>
-			<li><a>My Kitchen</a></li>
-		</ul>
-	</div>
-	<div class="sidebar-overlay">
-	</div>
+
 	<div class="wrapper">
     @include('layouts.navbar')
         @section('content')

@@ -47,6 +47,11 @@ class User extends Authenticatable
 
     public function blogs()
     {
-        return $this->hasMany(Blog::class);
+        return $this->belongsTo(Blog::class);
+    }
+
+    public function profiles()
+    {
+        return $this->belongsTo(Profile::class);
     }
 }

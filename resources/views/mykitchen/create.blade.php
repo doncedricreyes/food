@@ -25,7 +25,7 @@
 <!-- This is an example component -->
 <div class="max-w-7xl mx-auto from-[#F9F5F3] via-[#F9F5F3] to-[#F9F5F3] bg-gradient-to-br p-16">
 
-	<form method="POST" action="/mykitchen/create" class="row g-3">
+	<form method="POST" action="/mykitchen/create" enctype="multipart/form-data" class="row g-3">
         @csrf
         <div class="mb-6">
             <label for="name" class="block mb-2 text-sm font-medium ">Recipe name</label>
@@ -49,8 +49,8 @@
         <textarea id="recipe" name="recipe" rows="10" cols="50" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" required> </textarea>
     </div>
     <div class="mb-6">
-        <label for="image" class="block mb-2 text-sm font-medium ">Upload an image</label>
-        <input type="file" id="image" name="image" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+        <label for="img" class="block mb-2 text-sm font-medium ">Upload an image</label>
+        <input type="file" id="img" name="img" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" >
     </div>
 
     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>

@@ -19,6 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('recipe_id');
             $table->string('rating');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('recipe_id')->references('id')->on('recipes');
         });
     }
 
