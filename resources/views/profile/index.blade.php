@@ -32,8 +32,9 @@ Your Profile
         @csrf
         @method('PUT')
         @foreach($profile as $i)
-
+@if($i->pic )
        <img src="{{asset('images/'.$i->pic)}}">
+@endif
         <div class="flex flex-row flex-auto">
         <div class="mb-6 w-full mr-5">
             <label for="first_name" class="block mb-2 text-sm font-medium ">First Name</label>

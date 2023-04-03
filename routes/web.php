@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/recipes/{id}',[RecipeController::class,'view']);
 
     Route::get('/stories',[BlogController::class,'index']);
+    Route::get('/stories/me',[BlogController::class,'my_story']);
     Route::get('/stories/create',[BlogController::class,'create']);
     Route::post('/stories/create',[BlogController::class,'store']);
 

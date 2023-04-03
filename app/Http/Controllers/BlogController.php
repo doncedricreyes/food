@@ -23,10 +23,19 @@ class BlogController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
+            'description' => 'required',
             'body' => 'required',
         ]);
         $data['user_id'] = auth()->user()->id;
 
         Blog::create($data);
+    }
+
+    public function my_story()
+    {
+        $user_id = auth()->user()->id;
+        $blog = Blog::where('user_id',$user_id)->get();
+
+        return view('blog.me',['blog'=>$blog]);
     }
 }

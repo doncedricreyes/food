@@ -35,21 +35,21 @@ class ProfileController extends Controller
             $data = $request->validate([
                 'first_name' => 'required',
                 'last_name' => 'required',
-
+                'pic' => 'file|mimes:jpeg,png,jpg,gif,svg',
             ]);
-
+            if($request->hasFile('pic')){
             $image = $request->file('pic');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $filename);
-
-
+            $data['pic'] = $filename;
+            }
 
             $data['middle_name'] = $request->middle_name;
             $data['gender'] = $request->gender;
             $data['birthday'] = $request->birthday;
             $data['bio'] = $request->bio;
             $data['education'] = $request->education;
-            $data['pic'] = $filename;
+         
             $profile->update($data);
             return redirect('/profile');
         }
@@ -72,9 +72,13 @@ class ProfileController extends Controller
             'last_name' => 'required',
         ]);
 
+        if($request->hasFile('pic')){
         $image = $request->file('pic');
         $filename = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $filename);
+
+        $data['pic'] = $filename;
+        }
 
         $data['middle_name'] = $request->middle_name;
         $data['user_id'] = $user_id;
@@ -82,7 +86,7 @@ class ProfileController extends Controller
         $data['birthday'] = $request->birthday;
         $data['bio'] = $request->bio;
         $data['education'] = $request->education;
-        $data['pic'] = $filename;
+       
 
         Profile::create($data);
         return redirect('/profile');

@@ -24,6 +24,7 @@
 				<li><a href="">Ingredient</a></li>
 				<li><a href="/stories">Stories</a></li>
                 @if(auth()->check())
+				<li><a href="/profile">Profile</a></li>
                 <li><a href="/logout">Logout</a></li>
                 @else
                 <li><a href="/login">Login</a></li>
@@ -43,7 +44,7 @@
 			<li><a>Ingredient</a></li>
 			<li><a>Stories</a></li>
             @if(auth()->check())
-            <li><a href="/logout">Logout</a></li>
+            <li><a href="/profile">Profile</a></li>
             @else
             <li><a href="/login">Login</a></li>
             @endif

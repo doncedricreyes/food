@@ -15,7 +15,7 @@
     </div>
 
 
-<div class="flex flex-row mx-auto justify-center bg-test">
+<div class="flex  flex-row mx-auto justify-center bg-test">
 
 
 
@@ -23,7 +23,7 @@
 <div class='flex items-center justify-center min-h-screen flex-grow  px-2'>
     <div class='w-full max-w-md  mx-auto bg-white rounded-3xl shadow-xl overflow-hidden'>
 
-        <div class='max-w-md mx-auto'>
+        <div class='max-w-36 mx-auto'>
           <div class='h-[236px]' style='background-image:url({{asset('images/'.$i->img)}});background-size:cover;background-position:center'>
            </div>
           <div class='p-4 sm:p-6'>
