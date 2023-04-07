@@ -45,6 +45,10 @@
         <textarea id="description" name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" required> </textarea>
     </div>
     <div class="mb-6">
+        <label for="ingredients" class="block mb-2 text-sm font-medium ">Ingredients</label>
+        <textarea id="ingredients" name="ingredients" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" rows="7" col="50" required> </textarea>
+    </div>
+    <div class="mb-6">
         <label for="recipe" class="block mb-2 text-sm font-medium ">Your Recipe</label>
         <textarea id="recipe" name="recipe" rows="10" cols="50" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" required> </textarea>
     </div>

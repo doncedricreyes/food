@@ -54,4 +54,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Profile::class);
     }
+
+    public function recipes()
+    {
+        return $this->belongsTo(Recipe::class);
+    }
 }

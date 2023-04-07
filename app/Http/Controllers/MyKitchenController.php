@@ -11,7 +11,7 @@ class MyKitchenController extends Controller
     public function index()
     {
         $user_id = auth()->user()->id;
-        $query = Recipe::where('user_id',$user_id)->get();
+        $query = Recipe::where('user_id',$user_id)->paginate(4);
         return view('mykitchen.index',['recipes'=>$query]);
     }
 
@@ -27,6 +27,7 @@ class MyKitchenController extends Controller
             'name' => 'required',
             'description' => 'required',
             'recipe' => 'required',
+            'ingredients' => 'required',
             'category_id' => 'required',
 
         ]);
@@ -36,6 +37,7 @@ class MyKitchenController extends Controller
 
         $data['user_id'] = auth()->user()->id;
         $data['img'] = $filename;
+        $data['copy'] = 0;
         Recipe::create($data);
         return redirect('mykitchen/create');
     }
@@ -55,7 +57,7 @@ class MyKitchenController extends Controller
             'recipe' => 'required',
 
         ]);
-
+        $data['copy'] = 0;
         if($id->user_id == auth()->user()->id)
         {
             $id->update($data);

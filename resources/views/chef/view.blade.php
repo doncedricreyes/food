@@ -21,44 +21,40 @@
 
     </div>
 
-<div class="bg-rose-50">
-    <div class="flex flex-row">
-        <div class="flex w-9/12 m-5 text-3xl font-semibold px-10 py-3">Your Recipes </div>
-        <div><a href='/mykitchen/create' class='block m-5  px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
-           Create a recipe
-        </a> </div>
-    </div>
-    <div class="flex flex-wrap flex-row mx-auto justify-center ">
+    <div class="flex flex-wrap flex-row mx-auto justify-center py-10 bg-rose-50">
+
+
+
         @foreach($recipes as $i)
-    <div class='flex items-center justify-center flex-grow lg:w-1/4 sm:w-1/2 px-2 pb-5'>
+    <div class='flex items-center justify-center  flex-grow lg:w-1/4 sm:w-1/2  px-2'>
         <div class='w-full max-w-md  mx-auto bg-white rounded-3xl shadow-xl overflow-hidden'>
 
-            <div class='max-w-md mx-auto'>
-              <div class='h-[236px]' style='background-image:url("{{asset("images/".$i->img)}}");background-size:cover;background-position:center'>
+            <div class='max-w-36 mx-auto'>
+              <div class='h-[236px]' style='background-image:url({{asset('images/'.$i->img)}});background-size:cover;background-position:center'>
                </div>
               <div class='p-4 sm:p-6'>
 
-                @if($i->copy == 0)
                 <p class='font-bold text-gray-700 text-[22px] leading-7 mb-1'>{{$i->name}}</p>
-                 @else
-                 <p class='font-bold text-gray-700 text-[22px] leading-7 mb-1'>Copy of {{$i->name}}</p>
-                 @endif
+                <p class='text-[#7C7C80] font-[15px] '>Created by: <span class="font-bold text-gray-700">{{$i->users->get(0)->name}}</span></p>
                 <p class='text-[#7C7C80] font-[15px] mt-6'>{{$i->description}}</p>
 
 
-                  <a href='mykitchen/recipe/{{$i->id}}' class='block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
+                  <a href='/recipes/{{$i->id}}' class='block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
                       View this recipe
                   </a>
+                  <button wire:click="copy({{$i->id}})" class='block mt-5 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
+                    Copy this recipe
+                  </button>
               </div>
             </div>
         </div>
     </div>
+
     @endforeach
     <div class="py-10">
-        {{$recipes->links()}}
-        </div>
+
     </div>
-</div>
+    </div>
 
 
     <!-- component -->

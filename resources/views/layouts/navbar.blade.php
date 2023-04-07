@@ -20,9 +20,7 @@
 			<ul class="navbar__links">
 				<li class="active"><a href="/">Home</a></li>
 				<li><a href="/recipes">Recipes</a></li>
-				<li><a href="">Chef</a></li>
-				<li><a href="">Ingredient</a></li>
-				<li><a href="/stories">Stories</a></li>
+				<li><a href="/chef">Chef</a></li>
                 @if(auth()->check())
 				<li><a href="/profile">Profile</a></li>
                 <li><a href="/logout">Logout</a></li>

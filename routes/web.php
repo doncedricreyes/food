@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChefController;
 use App\Http\Controllers\MyKitchenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
@@ -58,5 +59,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profile/update/{id}',[ProfileController::class,'update']);
     Route::get('/profile/create',[ProfileController::class,'create']);
     Route::post('/profile/create',[ProfileController::class,'store']);
+
+    Route::get('/chef',[ChefController::class,'index']);
+    Route::get('/chef/recipes/{id}',[ChefController::class,'view']);
 });
 

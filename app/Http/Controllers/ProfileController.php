@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profile;
-
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -33,8 +33,7 @@ class ProfileController extends Controller
         if($profile)
         {
             $data = $request->validate([
-                'first_name' => 'required',
-                'last_name' => 'required',
+
                 'pic' => 'file|mimes:jpeg,png,jpg,gif,svg',
             ]);
             if($request->hasFile('pic')){
@@ -44,13 +43,19 @@ class ProfileController extends Controller
             $data['pic'] = $filename;
             }
 
-            $data['middle_name'] = $request->middle_name;
             $data['gender'] = $request->gender;
             $data['birthday'] = $request->birthday;
             $data['bio'] = $request->bio;
             $data['education'] = $request->education;
-         
+
             $profile->update($data);
+
+            $user = User::where('id',$id)->first();
+            $user_data = $request->validate([
+                'name' => 'required'
+            ]);
+            $user->update($user_data);
+
             return redirect('/profile');
         }
         else{
@@ -67,10 +72,7 @@ class ProfileController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $data = $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-        ]);
+
 
         if($request->hasFile('pic')){
         $image = $request->file('pic');
@@ -79,14 +81,12 @@ class ProfileController extends Controller
 
         $data['pic'] = $filename;
         }
-
-        $data['middle_name'] = $request->middle_name;
         $data['user_id'] = $user_id;
         $data['gender'] = $request->gender;
         $data['birthday'] = $request->birthday;
         $data['bio'] = $request->bio;
         $data['education'] = $request->education;
-       
+
 
         Profile::create($data);
         return redirect('/profile');

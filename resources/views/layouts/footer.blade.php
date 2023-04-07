@@ -20,20 +20,7 @@
 			</a>
 			<div class="footer__cont-links">
 				<div class="footer__flexbox">
-					<ul class="footer__links">
-						<li class="footer__link-main">Special Course</li>
-						<li>Wedding Foods</li>
-						<li>Healthy and Muscle</li>
-						<li>Office Food Daily</li>
-						<li>Happy Kids</li>
-					</ul>
-					<ul class="footer__links">
-						<li class="footer__link-main">Company</li>
-						<li>APIs Developer</li>
-						<li>Career</li>
-						<li>Terms & Conditions</li>
-						<li>Privacy Policy</li>
-					</ul>
+
 				</div>
 				<div class="footer__flexbox">
 					<ul class="footer__links">

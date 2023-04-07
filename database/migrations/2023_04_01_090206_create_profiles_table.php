@@ -26,6 +26,9 @@ return new class extends Migration
             $table->text('bio')->nullable();
             $table->string('education')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 

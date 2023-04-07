@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('img');
             $table->text('ingredients');
             $table->text('recipe');
+            $table->integer('copy');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

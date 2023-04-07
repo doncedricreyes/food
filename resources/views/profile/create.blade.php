@@ -29,16 +29,8 @@ Create your profile
         @csrf
         <div class="flex flex-row flex-auto">
         <div class="mb-6 w-full mr-5">
-            <label for="first_name" class="block mb-2 text-sm font-medium ">First Name</label>
-            <input type="text" id="first_name" name="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name" required>
-        </div>
-        <div class="mb-6 w-full mr-5">
-            <label for="middle_name" class="block mb-2 text-sm font-medium ">Middle Name</label>
-            <input type="text" id="middle_name" name="middle_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Middle Name">
-        </div>
-        <div class="mb-6 w-full">
-            <label for="last_name" class="block mb-2 text-sm font-medium ">Last Name</label>
-            <input type="text" id="last_name" name="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Last Name" required>
+            <label for="name" class="block mb-2 text-sm font-medium ">Name</label>
+            <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name" value={{auth()->user()->name}} disabled>
         </div>
         </div>
 
