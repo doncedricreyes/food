@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
-        @vite('resources/css/app.css');
+        @vite('resources/css/app.css')
 </head>
 <body>
 

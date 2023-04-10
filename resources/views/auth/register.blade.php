@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,84 +12,103 @@
 </head>
 <body>
 
-    <section class=" bg-blueGray-50">
-        <div class="w-full lg:w-6/12 px-4 mx-auto pt-6">
-          <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-            <div class="rounded-t mb-0 px-6 py-6">
-              <div class="text-center mb-3">
-                <h6 class="text-blueGray-500 text-sm font-bold">
-                  Sign up with
-                </h6>
-              </div>
-              <div class="btn-wrapper text-center">
-                <button class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
-                  <img alt="..." class="w-5 mr-1" src="https://demos.creative-tim.com/notus-js/assets/img/github.svg">Github </button>
-                <button class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
-                  <img alt="..." class="w-5 mr-1" src="https://demos.creative-tim.com/notus-js/assets/img/google.svg">Google</button>
+<!-- component -->
+<link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" />
 
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-300">
+  <div class="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
+    <div class="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">Create an Account</div>
+
+    <div class="relative mt-10 h-px bg-gray-300">
+      <div class="absolute left-0 top-0 flex justify-center w-full -mt-2">
+        <span class="bg-white px-4 text-xs text-gray-500 uppercase">Or Login With Email</span>
+      </div>
+    </div>
+    <div class="mt-10">
+      <form action="/register" method="post">
+        @csrf
+        <div class="flex flex-col mb-6">
+            <label for="name" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Name:</label>
+            <div class="relative">
+              <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
               </div>
-              <hr class="mt-6 border-b-1 border-blueGray-300">
+
+              <input id="name" type="text" name="name" class="text-sm sm:text-base placeholder-gray-500 pl-1 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Name" />
             </div>
-            <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-              <div class="text-blueGray-400 text-center mb-3 font-bold">
-                <small>Or sign up with credentials</small>
-              </div>
-              <form method="POST" action="/register">
-                @csrf
-                <div class="relative w-full mb-3">
-                  <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Name</label>
-                  <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Name" id="name" name="name">
-                </div>
+          </div>
 
-                <div class="relative w-full mb-3">
-                  <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Email</label>
-                  <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email" id="email" name="email">
-                </div>
-
-                <div class="relative w-full mb-3">
-                  <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Password</label>
-                  <input type="password" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Password" id="password" name="password">
-                </div>
-
-
-                <div class="relative w-full mb-3">
-                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">Confirm Password</label>
-                    <input type="password" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Password" id="password_confirmation" name="password_confirmation">
-                  </div>
-
-                <div>
-                  <label class="inline-flex items-center cursor-pointer">
-                    <input id="customCheckLogin" type="checkbox" class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150">
-                    <span class="ml-2 text-sm font-semibold text-blueGray-600">
-                      I agree with the
-                      <a href="javascript:void(0)" class="text-pink-500">
-                        Privacy Policy
-                      </a>
-                    </span>
-                  </label>
-                </div>
-
-                <div class="text-center mt-6">
-                  <button class="bg-blue-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="submit">
-                    Create Account
-                  </button>
-                </div>
-              </form>
+        <div class="flex flex-col mb-6">
+          <label for="email" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">E-Mail Address:</label>
+          <div class="relative">
+            <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+              <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+              </svg>
             </div>
+
+            <input id="email" type="email" name="email" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" />
           </div>
         </div>
-        <footer class="relative  pt-8 pb-6 mt-8">
-          <div class="container mx-auto px-4">
-            <div class="flex flex-wrap items-center md:justify-between justify-center">
-              <div class="w-full md:w-6/12 px-4 mx-auto text-center">
-                <div class="text-sm text-blueGray-500 font-semibold py-1">
-                  Made with <a href="https://www.creative-tim.com/product/notus-js" class="text-blueGray-500 hover:text-gray-800" target="_blank">Notus JS</a> by <a href="https://www.creative-tim.com" class="text-blueGray-500 hover:text-blueGray-800" target="_blank"> Creative Tim</a>.
-                </div>
+        <div class="flex flex-col mb-6">
+          <label for="password" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
+          <div class="relative">
+            <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+              <span>
+                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </span>
+            </div>
+
+            <input id="password" type="password" name="password" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" />
+          </div>
+        </div>
+        <div class="flex flex-col mb-6">
+            <label for="password_confirmation" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Confirm Password</label>
+            <div class="relative">
+              <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                <span>
+                  <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </span>
               </div>
+
+              <input id="password_confirmation" type="password" name="password_confirmation" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Confirm Password" />
             </div>
           </div>
-        </footer>
-        </section>
+
+
+
+        <div class="flex w-full">
+          <button type="submit" class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in">
+            <span class="mr-2 uppercase">Login</span>
+            <span>
+              <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="flex justify-center items-center mt-6">
+      <a href="/login"  class="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center">
+        <span>
+          <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+          </svg>
+        </span>
+        <span class="ml-2">Already have an account?</span>
+      </a>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
+
+
+
+

@@ -33,9 +33,9 @@
 					When you eat something that cooked by
 					<br>yourself, the happiness is priceless.
 				</div>
-				<button class="hero__cta">
+				<a href="/mykitchen"><button class="hero__cta">
 					Decide a Menu
-				</button>
+				</button></a>
 			</div>
 			<div class="hero__right">
 				<img src="./img/hero-img.png" alt="A girl vlogging inside her kitchen">
