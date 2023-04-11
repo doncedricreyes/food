@@ -46,6 +46,7 @@ class Recipe extends Component
         $copy->user_id = auth()->user()->id;
         $copy->copy = 1;
         $copy->save();
+        session()->flash('success', 'Recipe copied successfully.');
     }
 
 

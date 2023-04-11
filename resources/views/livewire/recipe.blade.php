@@ -47,6 +47,12 @@
               <button wire:click="copy({{$i->id}})" class='block mt-5 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
                 Copy this recipe
               </button>
+
+            @if (session()->has('success'))
+                <div class="text-green-900">
+                    {{ session('success') }}
+                </div>
+            @endif
           </div>
         </div>
     </div>

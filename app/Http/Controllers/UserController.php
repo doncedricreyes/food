@@ -9,6 +9,10 @@ class UserController extends Controller
 {
     public function register_index()
     {
+        if(auth()->check())
+        {
+            return redirect('/');
+        }
         return view('auth.register');
     }
 
@@ -46,7 +50,7 @@ class UserController extends Controller
             return redirect('/');
         }
         else{
-            return redirect('/login');
+            return redirect('/login')->withErrors(["login_failed" => "Invalid email or password!"]);
         }
     }
 

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    @vite('resources/css/app.css');
+    @vite('resources/css/app.css')
 </head>
 <body>
 
@@ -33,11 +33,15 @@
               <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
               </div>
 
-              <input id="name" type="text" name="name" class="text-sm sm:text-base placeholder-gray-500 pl-1 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Name" />
+              <input id="name" type="text" name="name" value="{{ old('name') }}" class="text-sm sm:text-base placeholder-gray-500 pl-1 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Name" />
             </div>
+            @error('name')
+              <div class="text-red-900">{{ $message }}</div>
+            @enderror
           </div>
 
         <div class="flex flex-col mb-6">
+
           <label for="email" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">E-Mail Address:</label>
           <div class="relative">
             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
@@ -46,8 +50,11 @@
               </svg>
             </div>
 
-            <input id="email" type="email" name="email" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" />
+            <input id="email" type="email" name="email" value="{{ old('email') }}" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" />
           </div>
+          @error('email')
+              <div class="text-red-900">{{ $message }}</div>
+          @enderror
         </div>
         <div class="flex flex-col mb-6">
           <label for="password" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
@@ -62,6 +69,9 @@
 
             <input id="password" type="password" name="password" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" />
           </div>
+          @error('password')
+              <div class="text-red-900">{{ $message }}</div>
+            @enderror
         </div>
         <div class="flex flex-col mb-6">
             <label for="password_confirmation" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Confirm Password</label>

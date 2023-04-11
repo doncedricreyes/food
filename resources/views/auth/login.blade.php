@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    @vite('resources/css/app.css');
+    @vite('resources/css/app.css')
 </head>
 <body>
 
@@ -36,7 +36,10 @@
               </svg>
             </div>
 
-            <input id="email" type="email" name="email" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" />
+            <input id="email" type="email" name="email" value="{{old('email')}}" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" />
+            @error('email')
+              <div class="text-red-900">{{ $message }}</div>
+            @enderror
           </div>
         </div>
         <div class="flex flex-col mb-6">
@@ -52,6 +55,9 @@
 
             <input id="password" type="password" name="password" class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" />
           </div>
+          @error('login_failed')
+              <div class="text-red-900">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="flex items-center mb-6 -mt-4">
